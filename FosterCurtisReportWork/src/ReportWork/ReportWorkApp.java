@@ -25,8 +25,7 @@ import javafx.stage.Stage;
 * 
 * +Use another class object that hides the password
 * 
-* +Find a way to use multiple users
-* 	-This I will make admin window.
+* 
 * 
 * +Update look for LoginController
 * 	-Used changeFormat method that was block commented
@@ -46,8 +45,8 @@ public class ReportWorkApp extends Application {
 	
 	@SuppressWarnings("exports")
 	public void start(Stage loginStage) throws Exception {
-		LoginController loginControl = new LoginController();
-		loginControl.startLoginWindow(loginStage);		
+		LoginWindow loginWindow = new LoginWindow();
+		loginWindow.startLoginWindow(loginStage);		
 	}
 
 	public static void main(String[] args) {
