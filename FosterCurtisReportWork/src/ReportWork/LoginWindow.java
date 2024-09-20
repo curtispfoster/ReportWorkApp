@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class LoginWindow {
-	private WorkLogic newLogin = new WorkLogic();
+	private Driver newLogin = new Driver();
 	private static final int WINDOW_WIDTH = 400;
     private static final int WINDOW_HEIGHT = 200;
 	

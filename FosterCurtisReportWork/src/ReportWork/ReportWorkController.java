@@ -22,7 +22,7 @@ public class ReportWorkController {
 	@SuppressWarnings({ "exports", "static-access" })
 	public void showReportWork(Stage reportStage) throws Exception {
 		
-		WorkLogic work = new WorkLogic();
+		Driver work = new Driver();
 		
 		
 		//Panes
