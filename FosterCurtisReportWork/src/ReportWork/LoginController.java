@@ -11,8 +11,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class LoginController {
-	private WorkLogic newWork = new WorkLogic();
-	
+	private WorkLogic newLogin = new WorkLogic();
+	private static final int WINDOW_WIDTH = 400;
+    private static final int WINDOW_HEIGHT = 200;
 	
 	@SuppressWarnings("exports")
 	public void startLoginWindow(Stage loginStage) {
@@ -21,7 +22,7 @@ public class LoginController {
 		Button loginButton = new Button("Login");
 		Label loginMessageLabel = new Label();
 		
-		loginMessageLabel.textProperty().bind(newWork.loginMessageProperty());
+		loginMessageLabel.textProperty().bind(newLogin.loginMessageProperty());
 		
 		GridPane login = new GridPane();
 		BorderPane root = new BorderPane(login);
@@ -35,22 +36,25 @@ public class LoginController {
 		login.add(loginButton, 1, 2);
 		login.add(loginMessageLabel, 1, 4);
 
-		// Declare Action Handler with Lambda
 		loginButton.setOnAction(e -> {
 			try {
-				if(newWork.validateLogin(userName.getText(), password.getText())) {
-					ReportWorkController newWork = new ReportWorkController();
-					newWork.showReportWork(loginStage);
+				if(userName.getText().isEmpty() || password.getText().isEmpty()) {
+					newLogin.setLoginMessage("Username and password cannot be empty");
+					return;
+				} if (newLogin.validateLogin(userName.getText(), password.getText())){
+					ReportWorkController loginValidated = new ReportWorkController();
+					//Set Stage
 				}
+				
 				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				e1.printStackTrace(); // add a logging framework
 			}
 		});
 
 		loginStage.setTitle("Report Work");
-		Scene windowScene = new Scene(root, 400, 200);
+		Scene windowScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 		loginStage.setScene(windowScene);
 		loginStage.show();
 
@@ -62,7 +66,5 @@ public class LoginController {
 		login.setPadding(new Insets(20));
 		login.setVgap(10); 
 	}
-	  
-	  //public void changeFormat(String newLabel) { changeFormat(login); }
 	 
 }
