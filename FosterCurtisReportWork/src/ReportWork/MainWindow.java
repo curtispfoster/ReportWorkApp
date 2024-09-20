@@ -41,7 +41,7 @@ import javafx.stage.Stage;
 * 
 */
 
-public class ReportWorkApp extends Application {
+public class MainWindow extends Application {
 	
 	@SuppressWarnings("exports")
 	public void start(Stage loginStage) throws Exception {
