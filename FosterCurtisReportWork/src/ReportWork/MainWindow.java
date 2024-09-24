@@ -36,9 +36,7 @@ import javafx.stage.Stage;
 * 	-Did partial fix, I did not understand what was going on with BufferReader
 * 	so I reverted back to what I know would work. But now I need to figure out 
 * 	how get multiple lines from the url. 
-* 	-
-* 
-* +Use another class object that hides the password
+*
 * 
 * 
 * 
@@ -49,8 +47,6 @@ import javafx.stage.Stage;
 * 
 * +Make AdminController window that adds users
 * 
-* 
-* +Make a file notes reader that read and writes to program
 * 
 * 
 * 
