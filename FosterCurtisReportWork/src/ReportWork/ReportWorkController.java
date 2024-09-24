@@ -1,6 +1,5 @@
 package ReportWork;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -18,48 +17,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/*
-* TODO
-* +validate for null value and tell the user and change validate to false. 
-* 	-fixed with selection statement in the WorkLogic with method isBlank
-* 	-fixed so that automatically tells user what is wrong such as username
-* 	 or password with StringProperty
-* 
-* +add HashMap to userNames and rename userNames to empIds in Home
-* 	***I might not need to use this. I would need research to how accomplish
-* 	   validating with two birds one stone method. 
-* 	+After doing research, I found that it not great to make username and password
-* 	encapsulate in the code, that often is used for databases so in future I will use
-* 	Microsoft Access for that. 
-* 
-* +Fix clientServerNames
-* 	-Did partial fix, I did not understand what was going on with BufferReader
-* 	so I reverted back to what I know would work. But now I need to figure out 
-* 	how get multiple lines from the url. 
-*
-* 
-* 
-* 
-* +Update look for LoginController
-* 	-Used changeFormat method that was block commented
-* 
-* +Figure out how to keep loginController so it doesn't move based loginMessages
-* 
-* +Make AdminController window that adds users
-* 
-* 
-* 
-* 
-*/
-
-public class MainWindow extends Application {
+public class ReportWorkController {
 	
-	@SuppressWarnings("exports")
-	public void start(Stage loginStage) throws Exception {
-		LoginWindow loginWindow = new LoginWindow();
-		loginWindow.startLoginWindow(loginStage);
+	@SuppressWarnings({ "exports", "static-access" })
+	public void showReportWork(Stage reportStage) throws Exception {
 		
 		Driver work = new Driver();
+		
+		
 		//Panes
 		HBox rootPane = new HBox();
 		VBox addClientsPane = new VBox();
@@ -144,13 +109,10 @@ public class MainWindow extends Application {
 		leftView.setMargin(datePicContent, new Insets(10));
 	
 		Scene windowScene = new Scene(rootPane);
-		loginStage.setTitle("Report Work");
-		loginStage.setScene(windowScene);
-		loginStage.show();	
+		reportStage.setTitle("Report Work");
+		reportStage.setScene(windowScene);
+		reportStage.show();	
+	}
 	
-	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
 }
+

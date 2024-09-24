@@ -42,7 +42,7 @@ public class LoginWindow {
 					newLogin.setLoginMessage("Username and password cannot be empty");
 					return;
 				} if (newLogin.validateLogin(userName.getText(), password.getText())){
-					MainWindow loginValidated = new MainWindow();
+					ReportWorkController loginValidated = new ReportWorkController();
 					//Set Stage
 				}
 				
