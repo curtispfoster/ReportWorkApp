@@ -9,7 +9,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextField;
 
-public class Driver extends ReportWorkApp{
+public class Driver extends MainWindow{
 	
 	private String userName;
 	private String password;
