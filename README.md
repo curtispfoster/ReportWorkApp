@@ -7,3 +7,7 @@ I am continuing to develop the front-end using React, with plans to eventually
 package the application as an executable file. Currently, I am using JavaFX for 
 code encapsulation but am considering leveraging Scene Builder and CSS for 
 enhanced styling and user interface design.
+
+# October 17, 2024
+Refactored Code: Corrected methods to self-documenting code. Started the design 
+window with scene builder for client window
