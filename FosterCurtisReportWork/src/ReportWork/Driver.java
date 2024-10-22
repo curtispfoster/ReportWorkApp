@@ -9,7 +9,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextField;
 
-public class Driver extends MainWindow{
+public class Driver { //Change name
 	
 	private String userName;
 	private String password;
@@ -20,11 +20,9 @@ public class Driver extends MainWindow{
 	private String tempOut;
 	
 	public Driver(){	
-		this.userName = "DevMode";
-		this.password = "123456";
-		this.loginMessage = new SimpleStringProperty();
-		
+			
 	}
+	
 	public Driver(String userName, String password){
 		this.userName = userName;
 		this.password = password;
@@ -74,16 +72,7 @@ public class Driver extends MainWindow{
 		this.tempOut = tempOut;
 	}
 
-	@SuppressWarnings("exports")
-	public int getHoursWorked(TextField tempIn, TextField tempOut) {
-		
-		//String in = tempIn.getText();
-		//String out = tempOut.getText();
-		
-		
-		return 0;
-		
-	}
+	
 	public int postMeridiem(String clockinClockout) {
 		String[]extract = clockinClockout.split(" ");
 		int count = 0;
@@ -125,7 +114,7 @@ public class Driver extends MainWindow{
 	public boolean validateLogin(String empId, String pwd) {
 		boolean usernameValid = invalidId(empId);
 		boolean pwdValid = invalidPwd(pwd);
-		invalidMessage(usernameValid, pwdValid);
+		//invalidMessage(usernameValid, pwdValid);
 		return usernameValid && pwdValid;
 	}
 	public boolean invalidId(String empId) {
@@ -134,26 +123,20 @@ public class Driver extends MainWindow{
 	public boolean invalidPwd(String pwd) {
 		return pwd.contains(getPassword()) && !getPassword().isBlank();
 	}
-	public String invalidMessage(boolean usernameValid, boolean pwdValid) {
-		
-		if (usernameValid && !pwdValid) {
-			setLoginMessage("Your Password is not correct");
-		}
-		
-		else if (!usernameValid && pwdValid){
-			setLoginMessage("Username is not found");
-		}
-		
-		else if (!usernameValid && !pwdValid) {
-			setLoginMessage("Username and Password are not correct");
-		}
-		
-		else {
-			setLoginMessage("Login Successful");
-		}	
-		return getLoginMessage();
-	}
-	
+	/*
+	 * public String invalidMessage(boolean usernameValid, boolean pwdValid) {
+	 * 
+	 * if (usernameValid && !pwdValid) {
+	 * setLoginMessage("Your Password is not correct"); }
+	 * 
+	 * else if (!usernameValid && pwdValid){
+	 * setLoginMessage("Username is not found"); }
+	 * 
+	 * else if (!usernameValid && !pwdValid) {
+	 * setLoginMessage("Username and Password are not correct"); }
+	 * 
+	 * else { setLoginMessage("Login Successful"); } return getLoginMessage(); }
+	 */
 	
 	
 	
