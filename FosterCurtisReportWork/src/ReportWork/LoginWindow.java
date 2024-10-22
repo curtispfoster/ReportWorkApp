@@ -13,8 +13,8 @@ import javafx.application.Application;
 
 public class LoginWindow extends Application{ // Change LoginWindow to Authentication
 	private Driver newLogin = new Driver();
-	private static final int WINDOW_WIDTH = 400;
-    private static final int WINDOW_HEIGHT = 200;
+	private static final int WINDOW_WIDTH = 600;
+    private static final int WINDOW_HEIGHT = 300;
     
 	
 	@SuppressWarnings("exports")
@@ -23,8 +23,6 @@ public class LoginWindow extends Application{ // Change LoginWindow to Authentic
 		TextField password = new TextField();
 		Button loginButton = new Button("Login");
 		Label loginMessageLabel = new Label();
-		
-		//loginMessageLabel.textProperty().bind(newLogin.loginMessageProperty());
 		
 		GridPane login = new GridPane();
 		BorderPane root = new BorderPane(login);
@@ -36,22 +34,28 @@ public class LoginWindow extends Application{ // Change LoginWindow to Authentic
 		login.add(new Label("Password "), 0, 1);
 		login.add(password, 1, 1);
 		login.add(loginButton, 1, 2);
-		login.add(loginMessageLabel, 1, 4);
+		login.add(loginMessageLabel, 1, 4); //wrap message so that it doesn't move
 
 		loginButton.setOnAction(e -> {
 			try {
-				if(userName.getText().isEmpty() || password.getText().isEmpty()) {
-					//newLogin.setLoginMessage("Username and password cannot be empty");
+				if (newLogin.validateLogin(userName.getText(), password.getText())) {
+					loginMessageLabel.setText("Successful Login");
+				} else if (userName.getText().isEmpty() && password.getText().isEmpty()) {
+					loginMessageLabel.setText("No username & password entered");
 					return;
-				} /*if (newLogin.validateLogin(userName.getText(), password.getText())){
-					MainWindow loginValidated = new MainWindow();
-					loginValidated.(loginStage);
-					//Set Stage
-}*/				
-				
+				} else if (userName.getText().isEmpty()) {
+					loginMessageLabel.setText("Username is Empty");
+					return;
+				} else if (password.getText().isEmpty()) {
+					loginMessageLabel.setText("No password entered");
+					return;
+				} else if (!newLogin.invalidPwd(userName.getText())){
+					loginMessageLabel.setText("Password is invalid");		
+				} else {
+					loginMessageLabel.setText("Invalid Username and Password");
+				}
 				
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace(); // add a logging framework
 			}
 		});
