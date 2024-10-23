@@ -1,6 +1,6 @@
 package ReportWork;
 
-import javafx.application.Application;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -52,12 +52,12 @@ import javafx.stage.Stage;
 * 
 */
 
-public class MainWindow extends Application {
+public class MainWindow extends LoginWindow { 
 	
 	@SuppressWarnings("exports")
-	public void start(Stage loginStage) throws Exception {
-		LoginWindow loginWindow = new LoginWindow();
-		loginWindow.startLoginWindow(loginStage);
+	public void loginWindow(Stage loginStage) throws Exception {
+		//LoginWindow loginWindow = new LoginWindow();
+		//loginWindow.startLoginWindow(loginStage);
 		
 		Driver work = new Driver();
 		//Panes
@@ -90,7 +90,7 @@ public class MainWindow extends Application {
 		ObservableList<String> outAmPm = FXCollections.observableArrayList("AM", "PM");
 		ObservableList<String> clientBoxList = FXCollections.observableArrayList(work.clientServerNames());
 		
-		clientBox.setItems(clientBoxList);
+		//clientBox.setItems(clientBoxList);
 		inAmPmList.setItems(inAmPm);
 		outAmPmList.setItems(outAmPm);
 		
